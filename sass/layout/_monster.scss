@@ -1,0 +1,136 @@
+.mo {
+    display: none;
+    width: 50%;
+    height: 60vh;
+    // overflow-y: auto;
+    // height: auto;
+    border: 2px solid black;
+    background-image: url(../img/decor.gif);
+    background-size: cover;
+}
+.sectTitle {
+    display: flex;
+    justify-content: space-evenly;
+}
+.sctbar {
+    display: flex;
+    justify-content: space-between;
+}
+#vieM,
+#vieY {
+    margin: 2vh;
+    width: 50%;
+    background-color: #ddd;
+    opacity: 0.5;
+}
+
+#barM,
+#barY {
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(0.25turn,#f66409,#04aa6d);
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
+
+.sctBut {
+    // background-color: white;
+    height: 10vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#dem {
+    width: 25%;
+    background-color: #04aa6d;
+}
+.butJeu {
+    display: none;
+}
+#aban{
+    margin: 1vh;
+    background-color: #ffffff;
+    
+}
+#attNorm{
+    margin: 1vh;
+    background-color: #f60909;
+    
+}
+#attSpec{
+    margin: 1vh;
+    background-color: #f68b09;
+    
+}
+#soin{
+    margin: 1vh;
+    background-color: #5ded99;
+
+}
+.log {
+    margin: 0;
+    padding: 0;
+}
+
+.log {.mlog {
+    cursor: pointer;
+    position: relative;
+    // padding: 12px 8px 12px 40px;
+    // background: #eee;
+    font-size: 14px;
+    color: #f60909;
+    transition: 0.2s;
+    list-style: none;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.nlog{
+    font-size: 14px;
+    color: chartreuse;
+}
+.alog{
+    font-size: 14px;
+    color: white;
+}
+.dlog{
+    font-size: 14px;
+    color: white;
+}
+}
+
+
+.modal{
+    width: 100%;
+}
+.log{
+    height: 16vh;
+    overflow-y: auto;
+    // border: 2px solid black;
+    overflow-block: auto;
+}
+.boxPerso{
+    display: flex;
+    justify-content: space-evenly;
+    height: 25vh;
+}
+.pla1{
+    background-image: url(../img/player01.jpg);
+    background-size: cover;
+    height: 100%;
+    width: 20%;
+    border: 2px solid black;
+    
+}
+.pla2{
+    background-image: url(../img/player02.jpg);
+    background-size: cover;
+    height: 100%;
+    width: 20%;
+    border: 2px solid black;
+
+}
