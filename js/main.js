@@ -1,32 +1,22 @@
 //HEADER************************************************************
 
-const naveBar = {
-
-    bouton01: "Carousel",
-    bouton02: "Liste",
-    bouton03: "Keeper",
-    bouton04: "Monster",
-
-}
-
-
 function generatHeader() {
 
     let boutonCarousel = document.createElement("button");
     boutonCarousel.setAttribute("class", "sectcar")
-    boutonCarousel.innerHTML = naveBar.bouton01
+    boutonCarousel.innerHTML = "Carousel";
 
     let boutonList = document.createElement("button");
     boutonList.setAttribute("class", "list")
-    boutonList.innerHTML = naveBar.bouton02
+    boutonList.innerHTML = "Liste";
 
     let boutonKeeper = document.createElement("button");
     boutonKeeper.setAttribute("class", "keep");
-    boutonKeeper.innerHTML = naveBar.bouton03
+    boutonKeeper.innerHTML = "Keeper";
 
     let boutonMonster = document.createElement("button");
     boutonMonster.setAttribute("class", "monst");
-    boutonMonster.innerHTML = naveBar.bouton04
+    boutonMonster.innerHTML = "Monster";
 
 
 
@@ -538,23 +528,28 @@ class joueur1 {
         newLiM.setAttribute("class", "nlog");
 
 
-        let logLiY = document.createTextNode("MONSTER! " + "ATTACK; " + "YOU PV DROPS TO " + barY.textContent);
-        let logLiM = document.createTextNode("YOU! " + "ATTACK: " + "MONSTER PV DROPS TO " + barM.textContent);
-        listLog.appendChild(newLiM);
+        let logLiM = document.createTextNode(`${j2.name}` + " ATTACK; " + `${this.name} PV DROPS TO ` + barY.textContent);
+        let logLiY = document.createTextNode(`${this.name}` + " ATTACK: " + `${j2.name} PV DROPS TO`  + barM.textContent);
         listLog.appendChild(newLiY);
-        newLiM.appendChild(logLiM);
+        listLog.appendChild(newLiM);
         newLiY.appendChild(logLiY);
+        newLiM.appendChild(logLiM);
         if (barY.textContent == "0%") {
-            newLiY.innerHTML = "YOU IS GAME OVER!"
+            newLiY.innerHTML = `${this.name} IS GAME OVER!`
         }
         if (barM.textContent == "0%") {
-            newLiY.innerHTML = "YOU IS WINNER!"
+            newLiY.innerHTML = `${this.name} IS WINNER!`
+            
         }
         if (barM.textContent == "0%") {
-            newLiM.innerHTML = "MONSTER IS GAME OVER!"
+            newLiM.innerHTML = `${j2.name} IS GAME OVER!`
         }
         if (barY.textContent == "0%") {
-            newLiM.innerHTML = " MONSTER IS WINNER!"
+            newLiM.innerHTML = `${j2.name} IS WINNER!`
+            newLiM.classList.remove("nlog");
+            newLiM.classList.add("mlog");
+            newLiY.classList.remove("mlog");
+            newLiY.classList.add("nlog");
         }
         document.getElementById('listLog').scrollTop = 1000;
     }
@@ -565,23 +560,30 @@ class joueur1 {
         let newLiM = document.createElement("li");
         newLiM.setAttribute("class", "nlog");
 
-        let logLiY = document.createTextNode("MONSTER! " + "ATTACK; " + "YOU PV DROPS TO " + barY.textContent);
-        let logLiM = document.createTextNode("YOU! " + "SPECIAL ATTACK: " + "MONSTER PV DROPS TO " + barM.textContent);
-        listLog.appendChild(newLiM);
+        let logLiM = document.createTextNode(`${j2.name}` + " ATTACK; " + `${this.name} PV DROPS TO ` + barY.textContent);
+        let logLiY = document.createTextNode(`${this.name}` + " SPECIAL ATTACK: " + `${j2.name} PV DROPS TO ` + barM.textContent);
         listLog.appendChild(newLiY);
-        newLiM.appendChild(logLiM);
+        listLog.appendChild(newLiM);
         newLiY.appendChild(logLiY);
+        newLiM.appendChild(logLiM);
         if (barY.textContent == "0%") {
-            newLiY.innerHTML = "YOU IS GAME OVER!"
+            newLiY.innerHTML = `${this.name} IS GAME OVER!`
+            
         }
         if (barM.textContent == "0%") {
-            newLiY.innerHTML = "YOU ISWINNER!"
+            newLiY.innerHTML = `${this.name} IS WINNER!`
+            
         }
         if (barM.textContent == "0%") {
-            newLiM.innerHTML = " MONSTER IS GAME OVER!"
+            newLiM.innerHTML = `${j2.name} IS GAME OVER!`
+            
         }
         if (barY.textContent == "0%") {
-            newLiM.innerHTML = "MONSTER IS WINNER!"
+            newLiM.innerHTML = `${j2.name} IS WINNER!`
+            newLiM.classList.remove("nlog");
+            newLiM.classList.add("mlog");
+            newLiY.classList.remove("mlog");
+            newLiY.classList.add("nlog");
         }
         document.getElementById('listLog').scrollTop = 1000;
     }
@@ -609,11 +611,11 @@ class joueur1 {
     }
     infoSoin() {
         
-        let logLiM = document.createTextNode("YOU! " + "CARE: " + "THE PV PV OF YOU TO " + barY.textContent);
-        let newLiM = document.createElement("li");
-        newLiM.setAttribute("class", "nlog");
-        listLog.appendChild(newLiM);
-        newLiM.appendChild(logLiM);
+        let logLiY = document.createTextNode(`${this.name}` + " CARE ! : " + "THE PV PV OF YOU TO " + barY.textContent);
+        let newLiY = document.createElement("li");
+        newLiY.setAttribute("class", "mlog");
+        listLog.appendChild(newLiY);
+        newLiY.appendChild(logLiY);
         document.getElementById('listLog').scrollTop = 1000;
         
     }
@@ -648,8 +650,8 @@ class joueur2 {
     infoAttackM() {
         
         let newLiY = document.createElement("li");
-        newLiY.setAttribute("class", "mlog");
-        let logLiY = document.createTextNode("MONSTER! " + "ATTACK; " + "YOU PV DROPS TO " + barY.textContent);
+        newLiY.setAttribute("class", "nlog");
+        let logLiY = document.createTextNode(`${this.name}` + " ATTACK ! ; " + `${j1.name} PV DROPS TO ` + barY.textContent);
         newLiY.appendChild(logLiY);
         listLog.appendChild(newLiY);
         
@@ -688,11 +690,11 @@ aban.addEventListener("click", function () {
 
 //INSTANCIATION DE LA CLASS JOUEUR1
 
-let j1 = new joueur1('Antonio');
+let j1 = new joueur1('Player 1');
 
 // INSTANCIATION DE LA CLASS JOUEUR2
 
-let j2 = new joueur2('Monster');
+let j2 = new joueur2('Player 2');
 
 //BOUTON ATTACK
 
@@ -703,7 +705,7 @@ attNorm.addEventListener("click", function () {
         document.querySelector("#attNorm").disabled = true;
         document.querySelector("#soin").disabled = true;
     };
-    if (j1.attack(-1, -1) <= 0 || j2.attMonster(5, 10) <= 0) {
+    if (j1.attack(-1, -1) <= 0 || j2.attMonster(5, 15) <= 0) {
         
         document.querySelector("#attSpec").disabled = true;
         document.querySelector("#attNorm").disabled = true;
@@ -725,7 +727,7 @@ attSpec.addEventListener("click", function () {
         document.querySelector("#attNorm").disabled = true;
         document.querySelector("#soin").disabled = true;
     }
-    if (j1.attack(-1, -1) <= 0 || j2.attMonster(5, 10) <= 0) {
+    if (j1.attack(-1, -1) <= 0 || j2.attMonster(5, 15) <= 0) {
         
         document.querySelector("#attSpec").disabled = true;
         document.querySelector("#attNorm").disabled = true;

@@ -369,7 +369,7 @@ main {
   cursor: pointer;
   position: relative;
   font-size: 14px;
-  color: #f60909;
+  color: chartreuse;
   transition: 0.2s;
   list-style: none;
   -webkit-user-select: none;
@@ -378,8 +378,8 @@ main {
   user-select: none;
 }
 .log .nlog {
+  color: #f60909;
   font-size: 14px;
-  color: chartreuse;
 }
 .log .alog {
   font-size: 14px;
