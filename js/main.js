@@ -482,7 +482,7 @@ class Init {
         let logLiD = document.createTextNode("LET GO!");
         listLog.appendChild(newLiD);
         newLiD.appendChild(logLiD);
-        document.getElementById('listLog').scrollTop = 1000;
+        document.getElementById('listLog').scrollTop = 10000;
     }
     infoabandon() {
         let newLiA = document.createElement("li");
@@ -490,7 +490,7 @@ class Init {
         let logLiA = document.createTextNode("GIVE UP!");
         listLog.appendChild(newLiA);
         newLiA.appendChild(logLiA);
-        document.getElementById('listLog').scrollTop = 1000;
+        document.getElementById('listLog').scrollTop = 10000;
 
     }
 
@@ -529,7 +529,7 @@ class joueur1 {
 
 
         let logLiM = document.createTextNode(`${j2.name}` + " ATTACK; " + `${this.name} PV DROPS TO ` + barY.textContent);
-        let logLiY = document.createTextNode(`${this.name}` + " ATTACK: " + `${j2.name} PV DROPS TO`  + barM.textContent);
+        let logLiY = document.createTextNode(`${this.name}` + " ATTACK: " + `${j2.name} PV DROPS TO` + barM.textContent);
         listLog.appendChild(newLiY);
         listLog.appendChild(newLiM);
         newLiY.appendChild(logLiY);
@@ -539,7 +539,7 @@ class joueur1 {
         }
         if (barM.textContent == "0%") {
             newLiY.innerHTML = `${this.name} IS WINNER!`
-            
+
         }
         if (barM.textContent == "0%") {
             newLiM.innerHTML = `${j2.name} IS GAME OVER!`
@@ -551,7 +551,7 @@ class joueur1 {
             newLiY.classList.remove("mlog");
             newLiY.classList.add("nlog");
         }
-        document.getElementById('listLog').scrollTop = 1000;
+        document.getElementById('listLog').scrollTop = 10000;
     }
     infoAttackS() {
 
@@ -568,15 +568,15 @@ class joueur1 {
         newLiM.appendChild(logLiM);
         if (barY.textContent == "0%") {
             newLiY.innerHTML = `${this.name} IS GAME OVER!`
-            
+
         }
         if (barM.textContent == "0%") {
             newLiY.innerHTML = `${this.name} IS WINNER!`
-            
+
         }
         if (barM.textContent == "0%") {
             newLiM.innerHTML = `${j2.name} IS GAME OVER!`
-            
+
         }
         if (barY.textContent == "0%") {
             newLiM.innerHTML = `${j2.name} IS WINNER!`
@@ -585,7 +585,7 @@ class joueur1 {
             newLiY.classList.remove("mlog");
             newLiY.classList.add("nlog");
         }
-        document.getElementById('listLog').scrollTop = 1000;
+        document.getElementById('listLog').scrollTop = 10000;
     }
     soinsY(min, max) {
         let elem = document.querySelector("#barY");
@@ -600,24 +600,24 @@ class joueur1 {
         if (width <= 0) {
             width = 0
         }
-        
+
         elem.style.width = width + "%";
-        
+
         elem.innerHTML = width + "%";
-        
+
         return width
-        
-        
+
+
     }
     infoSoin() {
-        
+
         let logLiY = document.createTextNode(`${this.name}` + " CARE ! : " + "THE PV PV OF YOU TO " + barY.textContent);
         let newLiY = document.createElement("li");
         newLiY.setAttribute("class", "mlog");
         listLog.appendChild(newLiY);
         newLiY.appendChild(logLiY);
-        document.getElementById('listLog').scrollTop = 1000;
-        
+        document.getElementById('listLog').scrollTop = 10000;
+
     }
 }
 
@@ -625,16 +625,16 @@ class joueur1 {
 
 class joueur2 {
     constructor(name) {
-        
+
         this.name = name;
-        
+
     }
-    
+
     attMonster(min, max) {
         console.log("monster attack")
         let elem = document.querySelector("#barY");
         let widthM = elem.style.width;
-        
+
         widthM = widthM.substring(0, widthM.length - 1);
         widthM -= attRandom(min, max);
         if (widthM <= 0) {
@@ -642,19 +642,19 @@ class joueur2 {
         }
         elem.style.width = widthM + "%";
         elem.innerHTML = widthM + "%";
-        
+
         return widthM
-        
+
     }
-    
+
     infoAttackM() {
-        
+
         let newLiY = document.createElement("li");
         newLiY.setAttribute("class", "nlog");
         let logLiY = document.createTextNode(`${this.name}` + " ATTACK ! ; " + `${j1.name} PV DROPS TO ` + barY.textContent);
         newLiY.appendChild(logLiY);
         listLog.appendChild(newLiY);
-        
+
     }
 }
 
@@ -671,7 +671,7 @@ Dem.addEventListener("click", function () {
 
     jeu.demarrage();
     jeu.infoDem();
-  
+
     document.querySelector("#attSpec").disabled = false;
     document.querySelector("#attNorm").disabled = false;
     document.querySelector("#soin").disabled = false;
@@ -683,9 +683,9 @@ aban.addEventListener("click", function () {
     document.querySelector(".butJeu").style.display = "none";
     document.querySelector("#dem").style.display = "flex";
     jeu.infoabandon();
-    
-    
-    
+
+
+
 })
 
 //INSTANCIATION DE LA CLASS JOUEUR1
@@ -700,50 +700,50 @@ let j2 = new joueur2('Player 2');
 
 attNorm.addEventListener("click", function () {
     if (j2.attMonster(-1, -1) <= 0 || j1.attack(5, 10) <= 0) {
-        
+
         document.querySelector("#attSpec").disabled = true;
         document.querySelector("#attNorm").disabled = true;
         document.querySelector("#soin").disabled = true;
     };
     if (j1.attack(-1, -1) <= 0 || j2.attMonster(5, 15) <= 0) {
-        
+
         document.querySelector("#attSpec").disabled = true;
         document.querySelector("#attNorm").disabled = true;
         document.querySelector("#soin").disabled = true;
     };
     j1.infoAttack();
-    
+
 })
 
 //BOUTON ATTACK SPECIAL
 
 attSpec.addEventListener("click", function () {
-    
-    
+
+
     if (j2.attMonster(-1, -1) <= 0 || j1.attack(10, 20) <= 0) {
-        
-        
+
+
         document.querySelector("#attSpec").disabled = true;
         document.querySelector("#attNorm").disabled = true;
         document.querySelector("#soin").disabled = true;
     }
     if (j1.attack(-1, -1) <= 0 || j2.attMonster(5, 15) <= 0) {
-        
+
         document.querySelector("#attSpec").disabled = true;
         document.querySelector("#attNorm").disabled = true;
         document.querySelector("#soin").disabled = true;
-        
+
     }
     j1.infoAttackS();
-    
+
 })
 
 //BOUTON SOIN
 
 soin.addEventListener("click", function () {
-    j1.soinsY(5, 10);
+    j1.soinsY(10, 20);
     j1.infoSoin();
-    j2.attMonster(5, 10);
+    j2.attMonster(5, 15);
     j2.infoAttackM();
 })
 
